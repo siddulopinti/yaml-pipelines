@@ -1,8 +1,15 @@
-trigger:
- - main:
-pool: ubuntu:latest
+
+pool:
+ vmImage: ubuntu:latest
 
 stages:
-  - stage: stageA
+  - stage: dev
     jobs:
-      - job: run "hello world"
+      - job: "run pipeline"
+        steps:
+          - script: echo hello world
+            displayName: 'Run a one-line script'
+          - script: 
+              echo Add other tasks to build, test, and deploy your project.
+              echo See https://aka.ms/yaml
+            displayName: 'Run a multi-line script'
